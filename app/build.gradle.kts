@@ -59,6 +59,8 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.glance.widget)
     implementation(libs.glance.material3)
+    implementation(libs.glance.preview)
+    implementation(libs.glance.appwidget.preview)
 
     testImplementation(libs.junit)
 

@@ -12,6 +12,8 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
+import androidx.glance.preview.ExperimentalGlancePreviewApi
+import androidx.glance.preview.Preview
 import androidx.glance.text.Text
 
 @Composable
@@ -75,4 +77,11 @@ private fun Updated(updated: String) {
         }
 
     )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 200, heightDp = 150)
+@Composable
+fun SampleWidgetPreview() {
+    SampleWidget()
 }
