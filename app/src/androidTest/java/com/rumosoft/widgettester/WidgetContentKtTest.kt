@@ -13,7 +13,7 @@ import org.junit.Test
 class WidgetContentKtTest {
     @Test
     fun widgetContent_checkTextContent() = runGlanceAppWidgetUnitTest {
-        setAppWidgetSize(DpSize(200.dp, 100.dp))
+        setAppWidgetSize(TEST_WIDGET_SIZE)
 
         provideComposable {
             SampleWidget()
@@ -31,7 +31,7 @@ class WidgetContentKtTest {
 
     @Test
     fun widgetContent_checkClickableButtons() = runGlanceAppWidgetUnitTest {
-        setAppWidgetSize(DpSize(200.dp, 100.dp))
+        setAppWidgetSize(TEST_WIDGET_SIZE)
 
         provideComposable {
             SampleWidget()
@@ -43,7 +43,7 @@ class WidgetContentKtTest {
 
     @Test
     fun widgetContent_checkOverflowed() = runGlanceAppWidgetUnitTest {
-        setAppWidgetSize(DpSize(200.dp, 100.dp))
+        setAppWidgetSize(TEST_WIDGET_SIZE)
 
         provideComposable {
             SampleOverflowedWidget()
@@ -51,5 +51,9 @@ class WidgetContentKtTest {
 
         onNode(hasContentDescription("Overflowed"))
             .assertExists()
+    }
+
+    companion object {
+        private val TEST_WIDGET_SIZE = DpSize(200.dp, 100.dp)
     }
 }
