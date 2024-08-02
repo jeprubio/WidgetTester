@@ -9,7 +9,6 @@ lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.06.00"
 glance = "1.1.0"
-glance-experimental = "0.2.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,7 +34,6 @@ glance-appwidget-testing = { group = "androidx.glance", name = "glance-appwidget
 
 glance-preview = { group = "androidx.glance", name = "glance-preview", version.ref = "glance" }
 glance-appwidget-preview = { group = "androidx.glance", name = "glance-appwidget-preview", version.ref = "glance" }
-glance-appwidget-host = { group = "com.google.android.glance.tools", name = "appwidget-host", version.ref = "glance-experimental" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -4,7 +4,9 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.glance.appwidget.testing.unit.runGlanceAppWidgetUnitTest
 import androidx.glance.testing.unit.assertHasClickAction
+import androidx.glance.testing.unit.hasContentDescription
 import androidx.glance.testing.unit.hasText
+import com.rumosoft.widgettester.widget.SampleOverflowedWidget
 import com.rumosoft.widgettester.widget.SampleWidget
 import org.junit.Test
 
@@ -19,10 +21,12 @@ class WidgetContentKtTest {
 
         onNode(hasText("678 46 11 44"))
             .assertExists()
-        onNode(hasText("0 GB"))
+        onNode(hasText("2.0 GB"))
             .assertExists()
         onNode(hasText("de 6 GB"))
             .assertExists()
+        onNode(hasContentDescription("Overflowed"))
+            .assertDoesNotExist()
     }
 
     @Test
@@ -35,5 +39,17 @@ class WidgetContentKtTest {
 
         onNode(hasText("a las 13:40"))
             .assertHasClickAction()
+    }
+
+    @Test
+    fun widgetContent_checkOverflowed() = runGlanceAppWidgetUnitTest {
+        setAppWidgetSize(DpSize(200.dp, 100.dp))
+
+        provideComposable {
+            SampleOverflowedWidget()
+        }
+
+        onNode(hasContentDescription("Overflowed"))
+            .assertExists()
     }
 }
