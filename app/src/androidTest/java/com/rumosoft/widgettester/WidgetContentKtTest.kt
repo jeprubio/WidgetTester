@@ -26,7 +26,7 @@ class WidgetContentKtTest {
             .assertExists()
         onNode(hasText("de 6 GB"))
             .assertExists()
-        onNode(hasContentDescription("Overflowed"))
+        onNode(hasTestTag("Overflowed"))
             .assertDoesNotExist()
     }
 
