@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.dp
 import androidx.glance.appwidget.testing.unit.runGlanceAppWidgetUnitTest
 import androidx.glance.testing.unit.assertHasClickAction
 import androidx.glance.testing.unit.hasContentDescription
+import androidx.glance.testing.unit.hasTestTag
 import androidx.glance.testing.unit.hasText
 import com.rumosoft.widgettester.widget.SampleOverflowedWidget
 import com.rumosoft.widgettester.widget.SampleWidget
@@ -49,7 +50,7 @@ class WidgetContentKtTest {
             SampleOverflowedWidget()
         }
 
-        onNode(hasContentDescription("Overflowed"))
+        onNode(hasTestTag("Overflowed"))
             .assertExists()
     }
 

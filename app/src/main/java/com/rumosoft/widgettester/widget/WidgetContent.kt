@@ -18,8 +18,8 @@ import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.preview.Preview
-import androidx.glance.semantics.contentDescription
 import androidx.glance.semantics.semantics
+import androidx.glance.semantics.testTag
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
@@ -112,15 +112,14 @@ fun Progress(
     totalData: Int,
     modifier: GlanceModifier = GlanceModifier
 ) {
-    val description = if (usedData <= totalData)
-        "Progress: ${usedData/totalData}*100 %"
-    else
-        "Overflowed"
     LinearProgressIndicator(
         modifier = modifier
             .fillMaxWidth()
             .height(8.dp)
-            .semantics { contentDescription = description },
+            .then(
+                if (usedData > totalData) GlanceModifier.semantics { testTag = "Overflowed" }
+                else GlanceModifier
+            ),
         progress = usedData / totalData,
         color = if (usedData <= totalData) ColorProvider(Color.Blue)
         else ColorProvider(Color.Red),
